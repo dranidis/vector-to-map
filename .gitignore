@@ -21,5 +21,4 @@
 /.clj-kondo/*
 !/.clj-kondo/config.edn
 
-# firebase
-.firebase
+/public/js

@@ -1,6 +1,6 @@
 ;; shadow-cljs configuration
 {:source-paths
- ["src"]
+ ["src" "test"]
 
  :dependencies []
 
@@ -11,4 +11,8 @@
 
         :modules
         {:main
-         {:entries [vector-to-map.core]}}}}}
+         {:entries [vector-to-map.core]}}}
+  :test {:target    :node-test
+         :output-to "out/node-tests.js"
+         :ns-regexp "-test$"
+         :autorun   true}}}
