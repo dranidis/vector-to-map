@@ -12,22 +12,27 @@
    (if (empty? list) {}
        (assoc (vector->map (rest list) (inc n)) (keyword (str n)) (first list)))))
 
-(declare if-vector?->map)
+;; 10 times faster
+(defn apply-fn-tovalues [f m]
+  (reduce-kv (fn [m k v] (assoc m k (f v)))
+             {} m))
 
-(defn- work-on-map
-  [a-map]
-  (if (= {} a-map)
-    a-map
-    (apply merge (map
-                  (fn [el] {(first el) (if-vector?->map (second el))})
-                  (seq a-map)))))
+;; (defn- apply-fn-tovalues
+;;   [function a-map]
+;;   (if (= {} a-map)
+;;     a-map
+;;     (apply merge (map
+;;                   (fn [[key value]] {key (function value)})
+;;                   (seq a-map)))))
 
 (defn if-vector?->map
   [value]
   (cond
     (vector? value) (vector->map value)
-    (map? value) (work-on-map value)
+    (map? value) (apply-fn-tovalues if-vector?->map value)
     :else value))
+
+1
 
 
 
