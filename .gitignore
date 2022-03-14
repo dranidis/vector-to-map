@@ -22,3 +22,5 @@
 !/.clj-kondo/config.edn
 
 /public/js
+
+pom.xml
