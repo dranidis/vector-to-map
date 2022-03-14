@@ -1,4 +1,4 @@
-(defproject org.clojars.dranidis/vector-to-map "0.1.2-SNAPSHOT"
+(defproject org.clojars.dranidis/vector-to-map "0.1.3-SNAPSHOT"
   :description "Transforms a vector to a map"
   :url "https://github.com/dranidis/vector-to-map"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
